@@ -1,0 +1,584 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0083)http://fol.zte.com.cn/UILoader/Index/FrameLeftMenu.aspx -->
+<HTML><HEAD><TITLE>左菜单</TITLE>
+<SCRIPT>var DefaultUrl='/UILoader/Index/FrameLeftMenu.aspx';var DefaultMenuID='';var DefaultSubMenuID='';</SCRIPT>
+
+<META content="text/html; charset=utf-8" http-equiv=Content-Type><LINK 
+rel=stylesheet type=text/css href="FrameLeftMenu_files/cssCn.css">
+<SCRIPT type=text/javascript >
+	window.test = 1;
+	window.change = function changeTab(flag)
+	{
+		document.getElementById("myRefrence").style.display = flag ? "none" : "block";
+		document.getElementById("moneyManage").style.display = flag ? "block" : "none";
+	}
+</SCRIPT>
+
+<STYLE type=text/css>
+	td a {display: block; }
+	a:link {color: #666;}
+	a:visited {color: #666;}
+	a:hover {color: #666;}
+	BACKGROUND-COLOR: #f5f5f5; SCROLLBAR-BASE-COLOR: #e5efff; FONT-FAMILY: "Verdana","Arial","Helvetica","sans-serif","宋体",simsun; FONT-SIZE: 12px
+}
+</STYLE>
+
+<META name=GENERATOR content="MSHTML 8.00.6001.23501"></HEAD>
+<BODY onmousewheel=ScrollWindow(); leftMargin=0 topMargin=0 marginwidth="0" 
+marginheight="0">
+<DIV style="WIDTH: 100%; HEIGHT: 100%; OVERFLOW: hidden" 
+id=RightNavigationMenu_Menu>
+<FORM id=Form1 method=post name=Form1 action="">
+<TABLE border=0 cellSpacing=0 cellPadding=0 width="100%" bgColor=#f5f5f5 
+valign="top">
+  <TBODY>
+  <TR>
+    <TD><!-- 菜单项 开始 --><!-- HELP 添加菜单项说明:
+		                     1. 添加菜单项: 参照代码块"菜单项1"里相关菜单子项,拷贝一份放于菜单条的相应位置;
+		                         1.1 添加菜单项里的子菜单项:参照代码块"子菜单项1"里相关菜单子项,拷贝一份放于对应菜单项的相应位置;
+		                     2. 根据各ID顺序,重新命名新菜单项代码内的标签TD,IMG,A 中的ID,只能修改原来ID名称的数字,且不能重复
+		                     3. 添加链接：在代码块中修改函数SetImageArrow 对应的URL参数，添加子菜单项的链接
+		                     4. IE中浏览检查,完成! --><!-- 菜单项1 开始 -->
+      <SCRIPT language=JavaScript src="FrameLeftMenu_files/tree.js"></SCRIPT>
+
+      <SCRIPT type=text/javascript>
+var isTreeView = "false";
+var colsWidth = 140;
+// 用于树状菜单的自动展开。
+var tmp_treeNodeStack=[];
+var treeNodeStack=[];
+	 
+if(isTreeView == "true")
+{
+    // 树对象
+    var treedemo = new Tree("tree");
+    var colsTemp;    
+       
+    if(top.middleFrameSet == undefined || top.middleFrameSet == null)
+    {
+        colsTemp = top.mainFrameSet.cols;
+    }
+    else
+    { 
+        colsTemp = top.bottomFrameSet.cols;
+    }
+    
+    if(colsTemp != "0,*")
+        ShowMenuByStyle(true);
+}
+
+function ShowMenuByStyle(isTree)
+{
+//alert("show");
+    if(isTree == true)
+    {
+        colsWidth = 180;
+        document.getElementById("RightNavigationMenu_Menu").className = "scroll";
+        document.getElementById("RightNavigationMenu_Menu").style.width = "100%";
+        document.getElementById("RightNavigationMenu_Menu").style.overflowX = "auto";
+        document.getElementById("RightNavigationMenu_Menu").style.overflowY = "auto";
+        document.getElementById("RightNavigationMenu_Menu").style.scrollbarBaseColor  = "#E5EFFF";    
+    }
+    if(top.middleFrameSet == undefined || top.middleFrameSet == null)
+    {
+        top.mainFrameSet.cols = colsWidth + ",*";
+        top.rightFrameSet.rows = "24,*";
+    }
+    else
+    {
+        top.mainFrameSet.rows = "24,*";
+        top.middleFrameSet.cols = colsWidth + ",*,0";
+        top.bottomFrameSet.cols = colsWidth + ",*";
+    }
+    if(top.rightup.document.all("showtoc") != null && top.rightup.document.all("showtoc") != undefined)
+    {
+        top.rightup.document.all("showtoc").style.display = "none";
+    }
+}
+
+function HideMenuByStyle(isTree)
+{
+//alert("hide");
+    colsWidth = 0;
+    
+    if(top.middleFrameSet == undefined || top.middleFrameSet == null)
+    {
+        top.mainFrameSet.cols = "0,*";
+        top.rightFrameSet.rows = "0,*";
+    }
+    else
+    { 
+        top.mainFrameSet.rows = "0,*";
+        top.bottomFrameSet.cols = "0,*";
+    }
+}
+
+
+function OnMenuClick(id, pageCode, frameStr)
+{
+    //alert("OnMenuClick");
+    toggleSection("RightNavigationMenu_MenuSection" + id + "_SectionPanel");
+    UrlLoad(id, pageCode, frameStr);
+}
+
+function UrlLoad(id, pageCode, frameStr)
+{
+    var url = 
+        ( pageCode.toLowerCase() == "")?"":"../Redirect.aspx?menuId=" + id + "&pageCode=" + pageCode;
+
+    SetImageArrow("MenuSection_" + id, url, frameStr);
+}
+
+function GetFrameStr(targetLink, targetPara)
+{
+    var frameStr = (targetLink == "") ? targetPara: "true";
+    if(frameStr == "")
+        frameStr = "right";
+    return frameStr;
+}
+
+//展开和选中树状菜单
+function SetTreeImageArrow(frameSet, id, url)
+{
+//debugger;
+    getTreeItem(treedemo,id,url);
+
+    //如果点击的不是二级菜单，则把二级菜单展开
+    for(var i=0;i<treeNodeStack.length;i++){
+        var obj=document.getElementById(TREE_ITEM_TITLE_ID_PFIX +treeNodeStack[i].itemId);
+        TreeTitle_OnClickEvent(obj, treeNodeStack[i].childs.length,"right");
+    }
+    //选中所点击的菜单
+    //TreeTitle_OnClickEvent(objDest, treeitem.childs.length, frameSet);
+}
+
+//根据name和url在树中找出对应的树项
+
+function getTreeItem(obj,id,url)
+{   
+    for(var i=0;i<obj.childs.length;i++)
+    {
+        var tree1 = obj.childs[i];  
+        tmp_treeNodeStack.push(tree1);     
+        //var title = tree1.title;
+        var treeid = tree1.id;
+        var tree_url = tree1.url;
+        //alert("treeid::" + treeid + "--id::" + id );
+        if(treeid == id && tree_url.indexOf(url) != -1)
+        {
+            //当前栈中的节点就是被选中的节点的路径，把他拷贝出来
+            for(var j=0;j<tmp_treeNodeStack.length;j++){
+                treeNodeStack.push(tmp_treeNodeStack[j]);
+            }
+            break;        
+        }
+        else 
+        {
+	        if(tree1.childs.length >0)
+	        { 
+	        //alert("title:" + title);
+	            getTreeItem(tree1,id,url) 
+	        }
+	        tmp_treeNodeStack.pop();
+        }
+    }
+    
+}
+</SCRIPT>
+<div id="myRefrence">
+      <TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
+        
+        <TBODY>
+      
+        <TR  id="myList" style="CURSOR: hand" 
+        onclick="OnMenuClick('ssb.menu.00000151','','');" 
+        background="left_bg.gif">
+          <TD background=FrameLeftMenu_files/left_bg.gif width="15%"><IMG 
+            id=RightNavigationMenu_MenuSectionssb.menu.00000151_ArrowImage 
+            border=0 src="FrameLeftMenu_files/left.gif" width=22 height=22></TD>
+          <TD id=RightNavigationMenu_MenuSectionssb.menu.00000151_SectionHeader 
+          class=left-nav title=我的单据 background=FrameLeftMenu_files/left_bg.gif 
+          width="85%" noWrap align=left font-size=12px>信息管理</TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <TABLE style="DISPLAY: none" 
+            id=RightNavigationMenu_MenuSectionssb.menu.00000151_SectionPanel 
+            class=rlinks border=0 cellSpacing=0 cellPadding=0 width="100%" 
+            align=left>
+              <TBODY>
+              <TR>
+                <TD>
+                  <TABLE 
+                  style="BORDER-BOTTOM: #f1f1f1 1px solid; BORDER-LEFT: #f1f1f1 1px solid; BORDER-TOP: #f1f1f1 1px solid; CURSOR: hand; BORDER-RIGHT: #f1f1f1 1px solid" 
+                  class=rlinks onmouseover="this.style.borderColor='#989898';" 
+                  onmouseout="this.style.borderColor='#f1f1f1';" 
+                  onclick="UrlLoad('ssb.menu.00001511','ui.page.sie_myboe_proposer','');" 
+                  cellSpacing=0 cellPadding=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD height=22 width=25 align=middle><IMG 
+                        style="DISPLAY: none" border=0 
+                        src="FrameLeftMenu_files/secdot_on.gif" width=11 
+                        height=11></TD>
+                      <TD id=MenuSection_ssb.menu.00001511 title=部门管理 noWrap 
+                      align=left font-size=12px><a href="../dept.do" target="right">部门管理</a> 
+                  </TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD>
+                  <TABLE 
+                  style="BORDER-BOTTOM: #f1f1f1 1px solid; BORDER-LEFT: #f1f1f1 1px solid; BORDER-TOP: #f1f1f1 1px solid; CURSOR: hand; BORDER-RIGHT: #f1f1f1 1px solid" 
+                  class=rlinks onmouseover="this.style.borderColor='#989898';" 
+                  onmouseout="this.style.borderColor='#f1f1f1';" 
+                  onclick="UrlLoad('ssb.menu.00001512','ui.page.sie_myboe_expenses','');" 
+                  cellSpacing=0 cellPadding=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD height=22 width=25 align=middle><IMG 
+                        style="DISPLAY: none" border=0 
+                        src="FrameLeftMenu_files/secdot_on.gif" width=11 
+                        height=11></TD>
+                      <TD id=MenuSection_ssb.menu.00001512 title=用户管理 noWrap 
+                      align=left font-size=12px><a href="../userMngt.do" target="right">用户管理</a>
+                  </TD></TR></TBODY></TABLE></TD></TR>
+                <TR>
+                <TD>
+                  <TABLE 
+                  style="BORDER-BOTTOM: #f1f1f1 1px solid; BORDER-LEFT: #f1f1f1 1px solid; BORDER-TOP: #f1f1f1 1px solid; CURSOR: hand; BORDER-RIGHT: #f1f1f1 1px solid" 
+                  class=rlinks onmouseover="this.style.borderColor='#989898';" 
+                  onmouseout="this.style.borderColor='#f1f1f1';" 
+                  onclick="UrlLoad('ssb.menu.00001514','ui.page.sie_myboe_expenses','');" 
+                  cellSpacing=0 cellPadding=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD height=22 width=25 align=middle><IMG 
+                        style="DISPLAY: none" border=0 
+                        src="FrameLeftMenu_files/secdot_on.gif" width=11 
+                        height=11></TD>
+                      <TD id=MenuSection_ssb.menu.00001514 title=项目管理 noWrap 
+                      align=left font-size=12px><a href="../projectMngt.do" target="right">项目管理</a>
+                  </TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD>
+                  <TABLE 
+                  style="BORDER-BOTTOM: #f1f1f1 1px solid; BORDER-LEFT: #f1f1f1 1px solid; BORDER-TOP: #f1f1f1 1px solid; CURSOR: hand; BORDER-RIGHT: #f1f1f1 1px solid" 
+                  class=rlinks onmouseover="this.style.borderColor='#989898';" 
+                  onmouseout="this.style.borderColor='#f1f1f1';" 
+                  onclick="UrlLoad('ssb.menu.00010001','ui.page.sie_myboe_waitapp','');" 
+                  cellSpacing=0 cellPadding=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD height=22 width=25 align=middle><IMG 
+                        style="DISPLAY: none" border=0 
+                        src="FrameLeftMenu_files/secdot_on.gif" width=11 
+                        height=11></TD>
+                      <TD id=MenuSection_ssb.menu.00010001 title=银行管理 noWrap 
+                      align=left font-size=12px><a href="../bank.do" target="right">银行管理</a>
+                  </TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD>
+                  <TABLE 
+                  style="BORDER-BOTTOM: #f1f1f1 1px solid; BORDER-LEFT: #f1f1f1 1px solid; BORDER-TOP: #f1f1f1 1px solid; CURSOR: hand; BORDER-RIGHT: #f1f1f1 1px solid" 
+                  class=rlinks onmouseover="this.style.borderColor='#989898';" 
+                  onmouseout="this.style.borderColor='#f1f1f1';" 
+                  onclick="UrlLoad('ssb.menu.00001513','ui.page.sie_myboe_approval','');" 
+                  cellSpacing=0 cellPadding=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD height=22 width=25 align=middle><IMG 
+                        style="DISPLAY: none" border=0 
+                        src="FrameLeftMenu_files/secdot_on.gif" width=11 
+                        height=11></TD>
+                      <TD id=MenuSection_ssb.menu.00001513 title=币种管理 noWrap 
+                      align=left font-size=12px><a href="../currency.do" target="right">币种管理</a>
+                 </TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD>
+                  <TABLE 
+                  style="BORDER-BOTTOM: #f1f1f1 1px solid; BORDER-LEFT: #f1f1f1 1px solid; BORDER-TOP: #f1f1f1 1px solid; CURSOR: hand; BORDER-RIGHT: #f1f1f1 1px solid" 
+                  class=rlinks onmouseover="this.style.borderColor='#989898';" 
+                  onmouseout="this.style.borderColor='#f1f1f1';" 
+                  onclick="UrlLoad('ssb.menu.00010281','ui.page.sie_retractboe','');" 
+                  cellSpacing=0 cellPadding=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD height=22 width=25 align=middle><IMG 
+                        style="DISPLAY: none" border=0 
+                        src="FrameLeftMenu_files/secdot_on.gif" width=11 
+                        height=11></TD>
+                      <TD id=MenuSection_ssb.menu.00010281 title=城市管理 noWrap 
+                      align=left font-size=12px><a href="../city.do" target="right">城市管理</a>
+                  </TD></TR>
+                  </TBODY></TABLE></TD></TR>
+                <TR>
+                <TD>
+                  <TABLE 
+                  style="BORDER-BOTTOM: #f1f1f1 1px solid; BORDER-LEFT: #f1f1f1 1px solid; BORDER-TOP: #f1f1f1 1px solid; CURSOR: hand; BORDER-RIGHT: #f1f1f1 1px solid" 
+                  class=rlinks onmouseover="this.style.borderColor='#989898';" 
+                  onmouseout="this.style.borderColor='#f1f1f1';" 
+                  onclick="UrlLoad('ssb.menu.00010381','ui.page.sie_retractboe','');" 
+                  cellSpacing=0 cellPadding=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD height=22 width=25 align=middle><IMG 
+                        style="DISPLAY: none" border=0 
+                        src="FrameLeftMenu_files/secdot_on.gif" width=11 
+                        height=11></TD>
+                      <TD id=MenuSection_ssb.menu.00010381 title=城市管理 noWrap 
+                      align=left font-size=12px><a href="../course.do" target="right">单据类型</a>
+                  </TD></TR>
+                  </TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      
+                  </div>
+                    <INPUT style="Z-INDEX: 101; POSITION: absolute; DISPLAY: none; TOP: 144px; LEFT: 0px" id=ShowLeftMenu onclick=ShowMenuByStyle(isTreeView); value=ShowLeftMenu type=button> 
+<INPUT style="Z-INDEX: 102; POSITION: absolute; DISPLAY: none; TOP: 168px; LEFT: 0px" id=HideLeftMenu onclick=HideMenuByStyle(isTreeView); value=HideLeftMenu type=button>
+      <SCRIPT>
+if(isTreeView == "true")
+{
+    //打印出整棵树
+}
+</SCRIPT>
+       <!-- 菜单项1 结束 --><!-- 菜单项 结束 --></TD></TR></TBODY></TABLE></FORM></DIV><!--请勿删除，用于树展开和收缩使用，胡成龙--><INPUT style="Z-INDEX: 101; POSITION: absolute; DISPLAY: none; TOP: 144px; LEFT: 0px" id=BtnExpandAll onclick=expandall(); value=ExpandAll type=button> 
+<INPUT style="Z-INDEX: 102; POSITION: absolute; DISPLAY: none; TOP: 168px; LEFT: 0px" id=BtnCollapseAll onclick=collapseall(); value=CollapseAll type=button>
+<SCRIPT>
+        var PrevSelectedValue = "tdExampleName";    
+    </SCRIPT>
+
+<SCRIPT id=RightNavigationMenu_SetupScript language=JavaScript>
+    <!--
+    	var arrowDown = new Image();
+    	arrowDown.src = "images/down.gif";
+    	var arrowRight = new Image();
+    	arrowRight.src = "images/left.gif";    
+    --></SCRIPT>
+
+<SCRIPT language=javascript>
+    var openDisplay = "inline";
+    var closedDisplay = "none";
+
+    // expandit function
+    //   calls toggleSection function after a
+    //   short delay so that images display 
+    //   without interuption
+    function expandit(itemId)
+    {
+        window.setTimeout("toggleSection('" + itemId + "')",10);
+    }
+
+    // toggleSection function
+    // opens or closes menu section 
+    function toggleSection(itemId) 
+    {
+        var arrowId = itemId.replace("SectionPanel", "ArrowImage");
+        var arrow, item;
+    	
+        if (document.all) 
+        {
+            item = document.all[itemId];
+            arrow = document.all[arrowId];
+        
+            if(item && item.style && item.style.display == closedDisplay)
+		        closeallmenu();
+        }
+    	
+        if (!document.all && document.getElementById) 
+        {
+            item = document.getElementById(itemId);
+            arrow = document.getElementById(arrowId);
+        }
+      
+    	if(item && item.style)
+    	{
+            if (item.style.display == closedDisplay) 
+            {
+                arrow.src = arrowDown.src;
+                item.style.display = openDisplay;
+            }
+            else
+            {
+                arrow.src = arrowRight.src;	
+                item.style.display = closedDisplay;		
+            }
+        }
+    }
+
+    function closeallmenu()
+    {
+        var i;
+        var ctrls = document.getElementsByTagName("table");
+        for(i=0;i <ctrls.length;i++)
+        {
+            if (ctrls.item(i).id.indexOf("SectionPanel") != -1)
+                ctrls.item(i).style.display = closedDisplay;
+        }
+        var ctrls = document.getElementsByTagName("img");
+        for(i=0;i <ctrls.length;i++)
+        {
+            if (ctrls.item(i).height == 22)
+                ctrls.item(i).src = arrowRight.src;
+        }
+    }
+
+    
+    //
+    // open all menus '  details
+    //
+    function expandall()
+    {
+        if(isTreeView == "true" || isTreeView == "True")
+        {
+            parent.leftup.changeAllItemsStatus("expand");            
+        }
+        else
+        {
+            var ctrls = document.getElementsByTagName("img");
+            var i;
+            for(i=0;i <ctrls.length;i++)
+            {
+                if (ctrls.item(i).height == 22)
+                    ctrls.item(i).src = arrowDown.src;
+            }
+            var ctrls = document.getElementsByTagName("table");
+            for(i=0;i <ctrls.length;i++)
+            {
+                if (ctrls.item(i).id.indexOf("SectionPanel") != -1)
+                    ctrls.item(i).style.display = openDisplay;
+            }        
+        }
+    }
+    
+    //
+    // close all menus' details
+    //
+    function collapseall()
+    {
+        if(isTreeView == "true" || isTreeView == "True")
+        {
+            parent.leftup.changeAllItemsStatus("collapse");            
+        }
+        else
+        {
+            closeallmenu();
+        }
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////
+    //函数名称： SetImageArrow
+    //功能说明： 子菜单点击后导航内容页面
+    //参数定义： tdName -- 子菜单所在的TD名称
+    //           url    -- 菜单链接URL
+    //开发人员： 刘建林
+    //完成日期： 2005-03-28
+    //////////////////////////////////////////////////////////////////////////////
+    function SetImageArrow(tdName,url,frameStr)
+    {
+    	var trs = document.getElementsByTagName("td");
+    	var i ;
+    	strValue =  PrevSelectedValue;
+    
+    	for(i=0;i <trs.length;i++)
+    	{
+    
+    		if( trs.item(i).id == strValue )
+    		{
+    			trs.item(i-1).innerHTML  = "";
+    			trs.item(i-1).bgColor    = "";
+    			trs.item(i).bgColor		 = "";
+    		}
+    
+    		if( trs.item(i).id == tdName )
+    		{
+    		
+    			trs.item(i-1).innerHTML = "<img height=11 src='images/secdot_on.gif' width=11 border=0>";
+    			trs.item(i-1).bgColor     = "#ffffd0";
+    			trs.item(i).bgColor		  = "#ffffd0";
+    			PrevSelectedValue		  = tdName
+    		}
+    	}
+    	if(frameStr == null || frameStr == undefined || frameStr == "")
+    	    frameStr = "right";
+    	if(url != "" && frameStr != "true")
+    	{
+          // 页面权限收集写cookie
+    	     var dat =new Date(); 
+             dat.setTime(dat.getTime()+60*24*3600*1000);  //设置时间为60天
+             document.cookie= "tdMenuID="+tdName+";path=/;expires= " + dat.toGMTString() + "; ";
+    	//alert(frameStr);
+			var scriptStr = "top." + frameStr +".location.href= '" + url + "';";
+			try
+			{
+				//eval(scriptStr);
+			}
+			catch(exception)
+			{
+			//alert("Exception");
+				scriptStr = "window.open('" + url
+					+ "','u','scrollbars=yes,dependent,width='+(screen.availWidth-300)+',height='+(screen.availHeight-200)+',left=0,top=0');";
+				//eval(scriptStr);
+			}
+    	}		
+    }
+    
+    ///////////////////////////// 
+    //函数名称：
+    //功能说明：
+    /////////////////////////////         
+    function ScrollWindow()
+    {
+        if (event.wheelDelta >= 120)
+			mscroll(-30,'RightNavigationMenu_Menu');
+		else if (event.wheelDelta <= -120)
+			mscroll(30,'RightNavigationMenu_Menu');
+    }
+    
+	//
+	//滚动菜单项目
+	//
+	var iTemp = 1;
+	function mscroll(iScrollNumber,OBJdivObject)
+	{
+		iTemp          = iScrollNumber;											//菜单滚动长度
+		var OBJTemp    = parent.leftup.document.getElementById(OBJdivObject);	//查找左侧菜单框架中该名字的对象
+		var iScrollTop = OBJTemp.scrollTop										//获得层的最高数据
+		
+		if (iTemp==0)
+		{
+			return;                                                             //如果滚动长度为0就返回  
+		}
+		OBJTemp.scrollTop=OBJTemp.scrollTop + iTemp;							//滚动菜单屏幕
+		if (iScrollTop==OBJTemp.scrollTop)
+		{
+    		//如果菜单不再滚动 那么就停止
+			return;
+		}
+		//setTimeout("mscroll(iTemp,'" + OBJdivObject + "')",80);						//如果一直按滚动按钮，就定时滚动相同长度的屏幕
+	}
+        
+    </SCRIPT>
+
+<SCRIPT language=javascript>
+
+	//////////////////////////////////////////////////////////////////////////
+	//功能：通过传入参数，设置默认进入菜单页面功能                          //
+	//参数：
+	//      DefaultMenuID     -- 二级菜单编号
+	//      DefaultSubMenuID  -- 三级菜单编号
+	//      DefaultUrl        -- 默认链接地址 
+	//////////////////////////////////////////////////////////////////////////
+    //展开二级菜单
+  
+    if (DefaultMenuID!="")
+    {
+	
+        var divName = "RightNavigationMenu_MenuSection" + DefaultSubMenuID +"_SectionPanel"; 
+        expandit(divName);
+   
+	    //如果有三级菜单，就选定三级菜单，并调用链接
+	    if (DefaultSubMenuID != "")
+	    {  
+		        var tdName = "MenuSection" + DefaultMenuID
+
+	        SetImageArrow(tdName,DefaultUrl)
+		}
+    } 
+    </SCRIPT>
+ </BODY></HTML>

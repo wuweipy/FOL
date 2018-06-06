@@ -1,0 +1,280 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0054)http://fol.zte.com.cn/UILoader/Index/FrameLeftTop.aspx -->
+<HTML><HEAD><TITLE>FrameLeftTop</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT language=javascript>
+   /* var strColumns_Current = "140,*";
+    var middleColumns_Current = "140,*";
+    var strRows_Current    = "22,*,40";
+    
+    function movenext()
+    {
+        //隐藏
+        strRows_Current = window.parent.leftFrameSet.rows;
+        top.leftFrameSet.rows = "22,*,0";    		
+    }
+    
+    function moveprevious()
+    {
+        //显示
+        if (strRows_Current == "22,*,0") strRows_Current="22,*,40";
+        window.parent.leftFrameSet.rows = strRows_Current;
+    }
+      
+    function expandall()
+    {
+        //全部展开对象实体区
+        top.leftup.document.getElementById("BtnExpandAll").click();
+    }
+      
+    function collapseall()
+    {
+        //全部收缩对象实体区
+        top.leftup.document.getElementById("BtnCollapseAll").click();
+    }
+    
+    function hidetoc()
+    {
+        //关闭
+        strColumns_Current = window.top.mainFrameSet.cols;
+        if(top.bottomFrameSet != null && top.bottomFrameSet != undefined)
+        {
+            middleColumns_Current = window.top.middleFrameSet.cols;
+            top.middleFrameSet.cols = "0,*";
+            top.bottomFrameSet.cols = "0,*";
+        }
+        else
+        {
+            window.top.mainFrameSet.cols = "0,*";
+        }
+		top.rightup.document.all("showtoc").style.display = "block";
+    }
+
+    function showtoc()
+    {
+        if(top.bottomFrameSet != null && top.bottomFrameSet != undefined)
+        {
+            top.middleFrameSet.cols = middleColumns_Current;
+            top.bottomFrameSet.cols = middleColumns_Current;
+        }
+        else
+        {
+            window.top.mainFrameSet.cols = strColumns_Current;
+        }
+		top.rightup.document.all("showtoc").style.display = "none";  
+    }
+      
+    function synctoc()
+    {
+        parent.location = parent.location.pathname + "?url=" + parent.content.location.pathname + parent.content.location.search + parent.content.location.hash;
+    }    
+    
+    function displaybutton()
+    {
+        //显示按钮
+        if (window.top.mainFrameSet.cols == "0.*")
+        {
+            top.rightup.document.all("showtoc").style.display = "block";
+        }
+    }
+    
+    function mouseover(item)
+    {
+        var aCulture = 'zh-CN';
+        switch (item)
+        {
+        case "moveprevious" :
+            if (aCulture == "zh-CN")
+            {
+                window.status = "向上滚动菜单";
+                document.all.imgMovePrevious.title = "向上滚动菜单"
+            }
+            else 
+            {
+                window.status = "Up";
+                document.all.imgMovePrevious.title = "Up"
+            }
+            document.all.imgMovePrevious.src = "images/moveprevious2.gif";
+            break;
+        
+        case "movenext" :
+            if (aCulture == "zh-CN")
+            {
+                window.status = "向下滚动菜单";
+                document.all.imgMoveNext.title = "向下滚动菜单";
+            }
+            else
+            {
+                window.status = "Down";
+                document.all.imgMoveNext.title = "Down";
+            }
+
+            document.all.imgMoveNext.src = "images/movenext2.gif";
+            break;
+         
+        case "hidetoc" :
+            if (aCulture == "zh-CN")
+            {
+                window.status = "关闭对象实体区";
+                document.all.imgHideToc.title = "关闭菜单";
+            }
+            else
+            {
+                window.status = "Close the Left Menu";  
+                document.all.imgHideToc.title = "Close the Left Menu";  
+            }
+            document.all.imgHideToc.src = "images/hidetoc2.gif"
+            break;
+        
+        case "expandall" :
+            if (aCulture == "zh-CN")
+            {
+                window.status = "全部展开";
+                document.all.imgExpandAll.title = "全部展开";
+            }
+            else
+            {
+                 window.status = "Expandall";
+                 document.all.imgExpandAll.title = "Expandall";
+            }
+            document.all.imgExpandAll.src = "images/expandall2.gif";
+            break;
+        
+        case "collapseall" :
+            if (aCulture == "zh-CN")
+            {
+                window.status = "全部收缩";
+                document.all.imgCollapseAll.title = "全部收缩";
+            }
+            else
+            {
+                window.status = "Collapseall";  
+                document.all.imgCollapseAll.title = "Collapseall"; 
+            }
+            document.all.imgCollapseAll.src = "images/collapseall2.gif";
+            break;
+        }    
+    }
+    
+    function mouseout(item)
+    {
+        switch (item)
+        {
+        case "moveprevious" :
+            window.status = "";
+            document.all.imgMovePrevious.src = "images/moveprevious1.gif";
+            break;
+        
+        case "movenext" :
+            window.status = "";
+            document.all.imgMoveNext.src = "images/movenext1.gif";
+            break;
+        
+        case "synctoc" :
+            window.status = "";
+            document.all.imgSyncToc.src = "images/synctoc1.gif"
+            break;
+        
+        case "hidetoc" :
+            window.status = "";
+            document.all.imgHideToc.src = "images/hidetoc1.gif"
+            break;
+        
+        case "expandall" :
+            window.status = "";
+            document.all.imgExpandAll.src = "images/expandall1.gif";
+            break;
+            
+        case "collapseall" :
+            window.status = "";
+            document.all.imgCollapseAll.src = "images/collapseall1.gif";
+            break;  
+        }
+    }
+    
+    function selectstart()
+    {
+        window.event.cancelBubble = true;
+        window.event.returnValue = false;
+        return false;
+    }
+    
+
+	//
+	//滚动菜单项目
+	//
+	var iTemp = 1;
+	function mscroll(iScrollNumber,OBJdivObject)
+	{
+			iTemp          = iScrollNumber;                                        //菜单滚动长度
+			var OBJTemp    = top.leftup.document.getElementById(OBJdivObject);  //查找左侧菜单框架中该名字的对象
+			var iScrollTop = OBJTemp.scrollTop																     //获得层的最高数据
+			
+			if (iTemp==0)
+			{
+				return;                                                              //如果滚动长度为0就返回  
+			}
+			OBJTemp.scrollTop=OBJTemp.scrollTop + iTemp;                           //滚动菜单屏幕
+		if (iScrollTop==OBJTemp.scrollTop)
+		{
+    		//如果菜单不再滚动 那么就停止
+		return;
+		}
+			setTimeout("mscroll(iTemp,'" + OBJdivObject + "')",80);	   //如果一直按滚动按钮，就定时滚动相同长度的屏幕
+	}   
+	
+	//置FrameLeftMenu于收起状态
+	//alert("zhj");
+	//window.top.mainFrameSet.cols = "0,*";
+	*/
+        </SCRIPT>
+
+<META name=GENERATOR content="MSHTML 8.00.6001.23501"></HEAD>
+<BODY leftMargin=0 topMargin=0 bgColor=#eeeeee marginheight="0" marginwidth="0">
+<FORM id=FrameLeftTopForm name=FrameLeftTopForm action=method=post>
+<TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD align=left>
+      <TABLE border=0 cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR>
+          <TD height=20 width=4><IMG src="FrameLeftTop_files/1pix.gif" 
+          width=4></TD>
+          <TD height=20><IMG style="CURSOR: hand" id=imgMoveNext 
+            onmouseup="mscroll(0,'RightNavigationMenu_Menu')" 
+            onmouseover="mouseover('movenext');" title=向下滚动菜单 
+            onmouseout="mouseout('movenext');mscroll(0,'RightNavigationMenu_Menu')" 
+            onmousedown="mscroll(-30,'RightNavigationMenu_Menu');" border=0 
+            src="FrameLeftTop_files/movenext1.gif"> </TD>
+          <TD height=20><IMG style="CURSOR: hand" id=imgMovePrevious 
+            onmouseup="mscroll(0,'RightNavigationMenu_Menu')" 
+            onmouseover="mouseover('moveprevious');" title=向上滚动菜单 
+            onmouseout="mouseout('moveprevious');mscroll(0,'RightNavigationMenu_Menu')" 
+            onmousedown="mscroll(30,'RightNavigationMenu_Menu');" border=0 
+            src="FrameLeftTop_files/moveprevious1.gif"> </TD>
+          <TD height=20><IMG src="FrameLeftTop_files/1pix.gif" width=3 
+            height=20></TD>
+          <TD height=20><IMG style="CURSOR: hand" id=imgExpandAll 
+            onmouseover="mouseover('expandall');" title=全部展开 
+            onmouseout="mouseout('expandall')" onclick=expandall(); border=0 
+            src="FrameLeftTop_files/expandall1.gif"></TD>
+          <TD height=20 width=4><IMG src="FrameLeftTop_files/1pix.gif" 
+          width=4></TD>
+          <TD height=20><IMG style="CURSOR: hand" id=imgCollapseAll 
+            onmouseover="mouseover('collapseall');" title=全部收缩 
+            onmouseout="mouseout('collapseall')" onclick=collapseall(); border=0 
+            src="FrameLeftTop_files/collapseall1.gif"></TD>
+          <TD height=20 width=4><IMG src="FrameLeftTop_files/1pix.gif" 
+          width=4></TD></TR></TBODY></TABLE></TD>
+    <TD align=right>
+      <TABLE border=0 cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR>
+          <TD height=20><IMG style="CURSOR: hand" id=imgHideToc 
+            onmouseover="mouseover('hidetoc');" title=关闭菜单 
+            onmouseout="mouseout('hidetoc');" onclick=hidetoc(); 
+            src="FrameLeftTop_files/hidetoc1.gif"></TD>
+          <TD height=20 width=4><IMG src="FrameLeftTop_files/1pix(1).gif" 
+            width=4 
+height=20></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM></BODY></HTML>

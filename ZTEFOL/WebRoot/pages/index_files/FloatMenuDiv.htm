@@ -1,0 +1,120 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0054)http://fol.zte.com.cn/UILoader/Index/FloatMenuDiv.aspx -->
+<HTML><HEAD><TITLE>FloatMenuDiv</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<STYLE>BODY {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DIV.floatmenu {
+	Z-INDEX: 200; BORDER-BOTTOM: #cccccc 0px solid; POSITION: absolute; BORDER-LEFT: #cccccc 0px solid; BACKGROUND-COLOR: #e1e1e1; WIDTH: 100%; HEIGHT: 24px; OVERFLOW: hidden; BORDER-TOP: #cccccc 0px solid; TOP: 0px; BORDER-RIGHT: #cccccc 0px solid
+}
+</STYLE>
+
+<META name=GENERATOR content="MSHTML 8.00.6001.23501"></HEAD>
+<BODY>
+<FORM id=_ctl0 method=post name=_ctl0 action=FloatMenuDiv.aspx><INPUT 
+id=__EVENTTARGET type=hidden name=__EVENTTARGET> <INPUT id=__EVENTARGUMENT 
+type=hidden name=__EVENTARGUMENT> <INPUT id=__LASTFOCUS type=hidden 
+name=__LASTFOCUS> <INPUT id=__VIEWSTATE 
+value=/wEPDwUKMTE0Nzk0MTE3OA9kFgICAQ9kFgICAQ8QDxYGHg1EYXRhVGV4dEZpZWxkBQROYW1lHg5EYXRhVmFsdWVGaWVsZAUCSWQeC18hRGF0YUJvdW5kZ2QQFQEn5Y2X5Lqs5Lit5YW05paw6L2v5Lu25pyJ6ZmQ6LSj5Lu75YWs5Y+4FQEFMTA4NDIUKwMBZxYBZmRkQPrL06Oe4zT6BATCVfU7nf+y5is= 
+type=hidden name=__VIEWSTATE>
+<SCRIPT type=text/javascript>
+<!--
+var theForm = document.forms['_ctl0'];
+if (!theForm) {
+    theForm = document._ctl0;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</SCRIPT>
+ <INPUT id=__EVENTVALIDATION 
+value=/wEWAwKx24GLAgLOls/MAQL33KbEBtYYvIVVgGXRUnPMzjQwsYOpov4Z type=hidden 
+name=__EVENTVALIDATION> 
+<DIV id=floatmenu class=floatmenu onmouseover=showfloatmenu() 
+onmouseout=hidefloatmenu()>
+<TABLE border=0 cellSpacing=0 cellPadding=0 width="100%" height=24>
+  <TBODY>
+  <TR>
+    <TD bgColor=#d2e1fd><IFRAME style="BACKGROUND-COLOR: #d2e1fd" 
+      height="100%" src="about:blank" frameBorder=0 width="100%" name=floatmenu 
+      scrolling=no></IFRAME></TD>
+    <SCRIPT>
+                    //alert(navigator.appVersion.indexOf("MSIE 7.0") != -1);
+                    if(navigator.appVersion.indexOf("MSIE 7.0") != -1)
+                    {
+                        document.write("<td  width=60 valign=\"middle\"  bgcolor=\"#D2E1FD\"  >" );
+                    }
+                    else
+                    {
+                        document.write("<td  width=160 valign=\"middle\"  bgcolor=\"#D2E1FD\"  >" );
+                    }
+                    </SCRIPT>
+
+    <TD bgColor=#d2e1fd><IMG style="CURSOR: hand" onclick=movstar(-20,1); 
+      src="FloatMenuDiv_files/icon_shiftleft2.gif" width=16 height=16> <IMG 
+      style="CURSOR: hand" onclick=movstar(20,1); 
+      src="FloatMenuDiv_files/icon_shiftright2.gif" width=16 height=16> </TD>
+    <TD bgColor=#d2e1fd vAlign=bottom align=right><SELECT style="HEIGHT: 20px" 
+      id=ddlDepartment language=javascript 
+      onchange="javascript:setTimeout('__doPostBack(\'ddlDepartment\',\'\')', 0)" 
+      name=ddlDepartment> <OPTION selected 
+      value=10842>南京中兴新软件有限责任公司</OPTION></SELECT> 
+</TD></TR></TBODY></TABLE></DIV></FORM>
+<SCRIPT>
+        var bodywidth = document.documentElement.scrollWidth;
+        var bodyheight = document.documentElement.clientHeight;
+        
+         
+        function hidefloatmenu()
+        {
+            window.top.middleFrameSet.cols = framSetCols;
+        }	
+        function showfloatmenu()
+        {
+            framSetCols = window.top.bottomFrameSet.cols;
+            window.top.middleFrameSet.cols = "0,0,*";
+        }
+
+        //点击判断
+	    var ii = 0;
+	    var movx = 0;
+	    // a>0向右
+		function movstar(a,time)
+		{
+		    // 此时向右
+		    if(a>0)
+			{// 上一步向右
+			if(ii>0)
+			return;
+    		
+			}else{// 此时向左
+			if(ii<0) // 上一步向左
+			return;
+    		
+			}
+			if(a>0)
+			    ii = 1;
+			    else
+			    ii = -1;
+			onmouseout=movover();
+			movx=setInterval("mov("+a+")",time);    		
+		}
+		function movover()
+		{ 
+			clearInterval(movx);
+		}
+		function mov(a)
+		{ 
+			scrollx=floatmenu.document.body.scrollLeft;
+			scrolly=floatmenu.document.body.scrollTop;
+			scrollx=scrollx+a;
+			floatmenu.window.scroll(scrollx,scrolly);
+		}
+        </SCRIPT>
+</BODY></HTML>

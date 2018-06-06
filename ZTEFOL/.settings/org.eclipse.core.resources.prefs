@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//WebRoot/pages/BudgetFinanceApproval.jsp=UTF-8
+encoding//WebRoot/pages/BudgetFinanceApprovalB.jsp=UTF-8
+encoding//WebRoot/pages/BudgetFinanceDetailInfo.jsp=UTF-8
+encoding//WebRoot/pages/MyBudget.jsp=UTF-8
+encoding//src/Business/Claims/BClaim.java=gbk
+encoding//src/Business/Claims/BMyClaim.java=GBK
+encoding//src/Data/Approval/MyClaimDAO.java=UTF-8
+encoding//src/View/MyBudget.java=GBK

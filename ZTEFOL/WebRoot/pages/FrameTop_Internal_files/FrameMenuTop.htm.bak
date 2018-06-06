@@ -1,0 +1,217 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>FrameMenuTop</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type><LINK 
+rel=stylesheet type=text/css href="FrameMenuTop_files/cssCn.css">
+<SCRIPT type=text/javascript src="FrameMenuTop_files/Navigate.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 8.00.6001.23501"></HEAD>
+<BODY>
+<FORM id=FrameMenuTop method=post name=FrameMenuTop >
+<DIV id=TopMenu1_PanelScript>
+<SCRIPT id=TopMenu1_SetupScript language=JavaScript>
+<!--
+	 var topMenuData =  new Array(2);	 var integratedList =  new Array(2);	 var urlList =  new Array(2);	 var hasValidateList =  new Array(2);	 for(var i=0;i < 2 ;i++) topMenuData[i] = new Array(3);	 topMenuData[0][0]='ssb.menu.00000015';	 topMenuData[0][1]='ui.page.fbp_mydesktop';	 topMenuData[0][2]='';	 integratedList[0]='false';	 hasValidateList[0]='';	 urlList[0]='~/Publish/Readme/MyDesktopReadme.aspx';	 topMenuData[1][0]='ssb.menu.00000012';	 topMenuData[1][1]='ui.page.sie';	 topMenuData[1][2]='';	 integratedList[1]='false';	 hasValidateList[1]='';	 urlList[1]='~/Publish/Readme/MyDesktopReadme.aspx';
+--></SCRIPT>
+</DIV>
+<TABLE id="tb_toptab" cellSpacing=0 height=23>
+  <TBODY>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD class=tab noWrap><A 
+      title=与我有关 
+      onclick="NavigatePage(0);" 
+      href="#">&nbsp;&nbsp; 
+      与我有关 &nbsp;&nbsp;</A> </TD>
+    <TD class=vline>&nbsp;</TD>
+    <TD class=tab noWrap><A 
+      title=报销管理 
+      onclick="NavigatePage(1);" 
+      href="#">&nbsp;&nbsp; 
+      报销管理 &nbsp;&nbsp;</A> </TD>
+    <TD class=vline>&nbsp;</TD>
+    <TD width="90%">&nbsp;</TD></TR></TBODY></TABLE><INPUT id=PrevSelectedValue 
+type=hidden name=PrevSelectedValue> </FORM>
+<SCRIPT language=JavaScript>           
+    /*        
+	        // 当为OutLook风格时导航菜单子项
+	        function showMenu(ShowValue, index, subIndex, url) 
+            {
+		        var vdocment=top.topframe.news.document;
+                var LinkValu='';
+                var strValue='';
+               
+                PrevSelectedValue = vdocment.all("PrevSelectedValue").value;
+                
+                LinkValue = ShowValue;
+                
+		        var rleft = vdocment.getElementById("tdmenu" + LinkValue).offsetLeft - vdocment.body.scrollLeft;
+		        var rright = rleft - top.topframe.DivTopMenu.scrollWidth;
+        		
+		        if( rleft < 0)
+		        {
+			        scrollx=top.topframe.news.document.body.scrollLeft; 
+			        scrolly=top.topframe.news.document.body.scrollTop;
+			        scrollx=scrollx + rleft - 25; 
+			        top.topframe.news.window.scroll(scrollx,scrolly)				
+		        }
+		        else
+		        {	
+			        if(rright > 0)
+			        {
+				        scrollx=top.topframe.news.document.body.scrollLeft; 
+				        scrolly=top.topframe.news.document.body.scrollTop;
+				        scrollx=scrollx + rright + 85; 
+				        top.topframe.news.window.scroll(scrollx,scrolly)
+			        }
+		        }
+                
+                if (PrevSelectedValue != LinkValue)
+                {
+                    var trs = vdocment.getElementsByTagName("td");
+                   
+                    var i ;
+                    
+                    //清除以前的选中显示
+                    if( PrevSelectedValue != "" )
+                    {
+				        strValue = "tdmenu" + PrevSelectedValue;  
+				        vdocment.getElementById(strValue).className  = "tab";
+        	            
+				        for(i=0;i <trs.length;i++)
+				        {
+					        if( trs.item(i).id == strValue )
+					        {
+						        if(trs.item(i-1).id=="td_vline")
+						        {
+							        trs.item(i-1).className  = "vline";
+						        }
+
+						        trs.item(i+1).className = "vline";
+					        }
+				        }
+                    }
+                    
+                    
+                    //高亮当前的显示
+                    strValue = "tdmenu" + LinkValue;
+                    vdocment.getElementById(strValue).className = "active";
+                    
+                    for(i=0;i <trs.length;i++)
+                    {
+                        if( trs.item(i).id == strValue )
+                        {
+                            trs.item(i-1).className  = "";
+                            trs.item(i+1).className = "";
+                        }
+                    }
+                    
+                    strValue = "linkmenu" + LinkValue;
+                    PrevSelectedValue = LinkValue;
+                    vdocment.getElementsByName("PrevSelectedValue")[0].value=LinkValue;
+                }
+                
+		        // 处理左菜单与欢迎页
+		        //top.frames['mainFrameSet'].cols = '145,*';
+		        
+		        //top.rightup.document.all("showtoc").style.display = "none";
+		        var str = 'FrameLeftMenu.aspx?TopMenuID=' + ShowValue + "&itemId=" + index + "&subItemId=" + subIndex + "&url=" + url;
+		        //alert("Url:" + str);
+		        top.leftup.location.href = str;
+                //焦点集中
+                top.rightup.window.focus();
+            } 
+            */
+            //////////////////////////////////////////////////////////////////////////////
+            //函数名称： NavigatePage
+            //功能说明： 菜单点击后导航各子页面
+            //参数定义： ShowValue --  用户点击的当前菜单项
+            //相关变量:  PrevSelectedValue -- 定义为上次用户点击菜单项编号,同时设置页面第一次打开的菜单项编号
+            //开发人员： 刘建林
+            //完成日期： 2005-03-28
+            //////////////////////////////////////////////////////////////////////////////
+            function NavigatePage(ShowValue) 
+            {
+            	top.frames[4].change(ShowValue == 1);
+            }
+            
+
+	         /*
+            function MouseOver(ShowValue) 
+            {
+                var LinkValue;
+                var strValue;
+                var tdValue;
+                
+                LinkValue = ShowValue;
+                strValue = "linkmenu" + LinkValue;
+                PrevSelectedValue =  document.all("PrevSelectedValue").value;
+                if (PrevSelectedValue != LinkValue)
+                {
+                    //当前值
+                    document.getElementById(strValue).style.color = "yellow";
+                }
+                else
+                {
+                    //当前选中的值
+                    document.getElementById(strValue).style.color = "yellow";
+                }
+            }
+
+            function MouseOut(ShowValue) 
+            {
+                var LinkValue;
+                var strValue;        
+
+				        LinkValue = ShowValue;
+                strValue = "linkmenu" + LinkValue;
+                PrevSelectedValue =  document.all("PrevSelectedValue").value;    
+
+                if (PrevSelectedValue != LinkValue)
+                {
+        	        //当前值
+        	        document.getElementById(strValue).style.color = "white";
+                }
+                else
+                {
+        	        //当前选中的值
+        	        document.getElementById(strValue).style.color = "blue";
+                }
+            }
+            
+            ///////////////////////////// 
+            //函数名称：
+            //功能说明：
+            /////////////////////////////         
+            function ScrollWindow()
+            {
+                if (event.wheelDelta >= 120)
+			        mscroll(-30,'DivTopMenu');
+		        else if (event.wheelDelta <= -120)
+			        mscroll(30,'DivTopMenu');
+            }
+            
+	        //
+	        //滚动菜单项目
+	        //
+	        var iTemp = 1;
+	        function mscroll(iScrollNumber,OBJdivObject)
+	        {
+		        iTemp          = iScrollNumber;											//菜单滚动长度
+		        var OBJTemp    = document.getElementById(OBJdivObject);					//查找左侧菜单框架中该名字的对象
+		        var iScrollLeft = OBJTemp.scrollLeft									//获得层的最高数据
+		        if (iTemp==0)
+		        {
+			        return;                                                             //如果滚动长度为0就返回  
+		        }
+		        OBJTemp.scrollLeft=OBJTemp.scrollLeft + iTemp;							//左右滚动菜单屏幕
+		        //alert(iTemp);
+		        //alert(OBJTemp.scrollLeft);
+		        if (iScrollLeft==OBJTemp.scrollLeft)
+		        {
+			        //如果菜单不再滚动 那么就停止
+			        return;
+		        }
+	        }
+*/
+        </SCRIPT>
+</BODY></HTML>

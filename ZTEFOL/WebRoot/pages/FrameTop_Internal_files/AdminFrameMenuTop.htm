@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>FrameMenuTop</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type><LINK 
+rel=stylesheet type=text/css href="FrameMenuTop_files/cssCn.css">
+<SCRIPT type=text/javascript src="FrameMenuTop_files/Navigate.js"></SCRIPT>
+<style type="text/css">
+	.active {
+	  background : white;
+	}
+</style>
+</HEAD>
+<BODY>
+<FORM id=FrameMenuTop method=post name=FrameMenuTop >
+<DIV id=TopMenu1_PanelScript>
+<SCRIPT id=TopMenu1_SetupScript language=JavaScript>
+<!--
+	 var topMenuData =  new Array(2);	 var integratedList =  new Array(2);	 var urlList =  new Array(2);	 var hasValidateList =  new Array(2);	 for(var i=0;i < 2 ;i++) topMenuData[i] = new Array(3);	 topMenuData[0][0]='ssb.menu.00000015';	 topMenuData[0][1]='ui.page.fbp_mydesktop';	 topMenuData[0][2]='';	 integratedList[0]='false';	 hasValidateList[0]='';	 urlList[0]='~/Publish/Readme/MyDesktopReadme.aspx';	 topMenuData[1][0]='ssb.menu.00000012';	 topMenuData[1][1]='ui.page.sie';	 topMenuData[1][2]='';	 integratedList[1]='false';	 hasValidateList[1]='';	 urlList[1]='~/Publish/Readme/MyDesktopReadme.aspx';
+--></SCRIPT>
+</DIV>
+<TABLE id="tb_toptab" cellSpacing=0 height=23>
+  <TBODY>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD class=active noWrap id="me"><A 
+      title=管理菜单 
+      onclick="NavigatePage(0);" 
+      href="javascript:void(0)">&nbsp;&nbsp; 
+      管理菜单 &nbsp;&nbsp;</A> </TD>
+    <TD class=vline>&nbsp;</TD>
+    <TD class=vline>&nbsp;</TD>
+    <TD width="90%">&nbsp;</TD></TR></TBODY></TABLE><INPUT id=PrevSelectedValue 
+type=hidden name=PrevSelectedValue> </FORM>
+<SCRIPT language=JavaScript>           
+   
+            function NavigatePage(ShowValue) 
+            {
+            	  top.frames[1].change(ShowValue == 1);
+            	  if(ShowValue == 1)
+            	  {
+            	  	 document.getElementById("guanli").className = "active";
+            	  	 document.getElementById("me").className = "me";
+            	  }
+            	  else
+            	  {
+             	  	 document.getElementById("me").className = "active";
+            	  	 document.getElementById("guanli").className = "me";           	  		
+            	  }
+            }
+	      
+        </SCRIPT>
+</BODY></HTML>
